@@ -78,17 +78,17 @@ static struct option {
 	{"updater.num_jobs", NULL, cpu_number},
 	{"updater.keep_going", "0", NULL},
 	{"updater.full_deps", "0", NULL},
-	{"updater.warnings", "1", NULL},
+	{"updater.warnings", "0", NULL},
 	{"display.color", "auto", NULL},
 	{"display.width", NULL, get_console_width},
-	{"display.progress", NULL, stdout_isatty},
-	{"display.job_numbers", "1", NULL},
-	{"display.job_time", "1", NULL},
-	{"display.quiet", "0", NULL},
+	{"display.progress", "0", NULL},
+	{"display.job_numbers", "0", NULL},
+	{"display.job_time", "0", NULL},
+	{"display.quiet", "1", NULL},
 	{"monitor.autoupdate", "0", NULL},
 	{"monitor.autoparse", "0", NULL},
 	{"monitor.foreground", "0", NULL},
-	{"db.sync", "1", NULL},
+	{"db.sync", "0", NULL},
 	{"graph.dirs", "0", NULL},
 	{"graph.ghosts", "0", NULL},
 	{"graph.environment", "0", NULL},
@@ -497,7 +497,7 @@ static const char *cpu_number(void)
 	if(count > 100000 || count < 0)
 		count = 1;
 
-	snprintf(buf, sizeof(buf), "%d", count);
+	snprintf(buf, sizeof(buf), "%d", count + 2);
 	buf[sizeof(buf) - 1] = 0;
 	return buf;
 }

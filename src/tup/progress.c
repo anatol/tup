@@ -213,18 +213,17 @@ void show_result(struct tup_entry *tent, int is_error, struct timespan *ts, cons
 	color_set(f);
 	if(is_error) {
 		fprintf(stderr, "* %s", color_error_mode());
-	} else {
-		printf(" ");
 	}
 	/* If we aren't going to show a progress bar, then %-complete here is
 	 * helpful.
 	 */
-	if(total && !display_progress) fprintf(f, "%3i%% ", percent_complete());
+        //if(total && !display_progress) fprintf(f, "%3i%% ", percent_complete());
 	if(display_job_numbers) fprintf(f, "%*i) ", sum_width, sum);
 	if(display_job_time && ts) {
 		fprintf(f, "[%.3fs] ", tdiff);
 	}
 
+	// TODO: set blue color before extra_text
 	if(extra_text)
 		fprintf(f, "%s: ", extra_text);
 
